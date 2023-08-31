@@ -6,6 +6,10 @@ const router = express.Router();
 const moduleRoutes = [
   // ... routes
   {
+    path: '/auth',
+    route: UserRoutes,
+  },
+  {
     path: '/users',
     route: UserRoutes,
   },
