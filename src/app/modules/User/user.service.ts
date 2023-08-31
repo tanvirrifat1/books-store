@@ -20,4 +20,20 @@ const getSingleDataFromDb = async (id: string): Promise<User | null> => {
   return result;
 };
 
-export const UserService = { insertIntoDb, getAllFromDb, getSingleDataFromDb };
+const updateData = async (
+  id: string,
+  payload: Partial<User>
+): Promise<User | null> => {
+  const result = await prisma.user.update({
+    where: { id },
+    data: payload,
+  });
+  return result;
+};
+
+export const UserService = {
+  insertIntoDb,
+  getAllFromDb,
+  getSingleDataFromDb,
+  updateData,
+};

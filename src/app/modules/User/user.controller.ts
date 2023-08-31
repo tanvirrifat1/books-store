@@ -38,8 +38,20 @@ const getSingleDataFromDb = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const update = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserService.updateData(req.params.id, req.body);
+
+  sendResponse<User | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'user updated successfully',
+    data: result,
+  });
+});
+
 export const UserController = {
   insertIntoDb,
   getAllFromDb,
   getSingleDataFromDb,
+  update,
 };

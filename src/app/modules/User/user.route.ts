@@ -7,6 +7,11 @@ const router = express.Router();
 
 router.get('/', UserController.getAllFromDb);
 router.get('/:id', UserController.getSingleDataFromDb);
+router.patch(
+  '/:id',
+  validateRequest(UserValidation.update),
+  UserController.update
+);
 router.post(
   '/signup',
   validateRequest(UserValidation.create),
