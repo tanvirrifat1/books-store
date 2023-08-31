@@ -27,4 +27,33 @@ const getAllData = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const CategoryController = { insertIntoDb, getAllData };
+const getSingleData = catchAsync(async (req: Request, res: Response) => {
+  const result = await CategoryService.getSingleData(req.params.id);
+
+  sendResponse<Category | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Get single Category successfully',
+    data: result,
+  });
+});
+
+const updateData = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const data: any = req.body;
+  const result = await CategoryService.updateData(id, data);
+
+  sendResponse<Category | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Category updated successfully',
+    data: result,
+  });
+});
+
+export const CategoryController = {
+  insertIntoDb,
+  getAllData,
+  getSingleData,
+  updateData,
+};

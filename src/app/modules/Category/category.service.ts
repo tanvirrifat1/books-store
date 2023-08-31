@@ -13,4 +13,27 @@ const getAllData = async (): Promise<Category[]> => {
   return result;
 };
 
-export const CategoryService = { insertIntoDb, getAllData };
+const getSingleData = async (id: string): Promise<Category | null> => {
+  const result = await prisma.category.findUnique({
+    where: { id },
+  });
+  return result;
+};
+
+const updateData = async (
+  id: string,
+  payload: Partial<Category>
+): Promise<Category | null> => {
+  const result = await prisma.category.update({
+    where: { id },
+    data: payload,
+  });
+  return result;
+};
+
+export const CategoryService = {
+  insertIntoDb,
+  getAllData,
+  getSingleData,
+  updateData,
+};
