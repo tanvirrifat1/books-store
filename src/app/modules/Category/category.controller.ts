@@ -16,4 +16,15 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const CategoryController = { insertIntoDb };
+const getAllData = catchAsync(async (req: Request, res: Response) => {
+  const result = await CategoryService.getAllData();
+
+  sendResponse<Category[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Category fetched successfully',
+    data: result,
+  });
+});
+
+export const CategoryController = { insertIntoDb, getAllData };
