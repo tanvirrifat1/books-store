@@ -20,6 +20,13 @@ const getSingleDataFromDb = async (id: string): Promise<User | null> => {
   return result;
 };
 
+const deletedData = async (id: string): Promise<User | null> => {
+  const result = await prisma.user.delete({
+    where: { id },
+  });
+  return result;
+};
+
 const updateData = async (
   id: string,
   payload: Partial<User>
@@ -36,4 +43,5 @@ export const UserService = {
   getAllFromDb,
   getSingleDataFromDb,
   updateData,
+  deletedData,
 };

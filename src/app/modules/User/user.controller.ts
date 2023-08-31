@@ -49,9 +49,21 @@ const update = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deletedData = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserService.deletedData(req.params.id);
+
+  sendResponse<User | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'user deleted successfully',
+    data: result,
+  });
+});
+
 export const UserController = {
   insertIntoDb,
   getAllFromDb,
   getSingleDataFromDb,
   update,
+  deletedData,
 };

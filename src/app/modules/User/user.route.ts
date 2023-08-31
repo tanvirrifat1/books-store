@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/', UserController.getAllFromDb);
 router.get('/:id', UserController.getSingleDataFromDb);
+router.delete('/:id', UserController.deletedData);
 router.patch(
   '/:id',
   validateRequest(UserValidation.update),
