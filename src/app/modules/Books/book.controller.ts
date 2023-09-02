@@ -22,9 +22,6 @@ const getAllData = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, BookFilterAbleFields);
   const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
 
-  // console.log(filters, 'filter');
-  // console.log(options, 'options');
-
   const result = await BookService.getAllData(filters, options);
 
   sendResponse<Book[]>(res, {
@@ -36,4 +33,32 @@ const getAllData = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const BookController = { insertIntoDb, getAllData };
+const getByBooks = catchAsync(async (req: Request, res: Response) => {
+  const result = await BookService.getByBooks(req.params.id);
+
+  sendResponse<Book | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'get single Books successfully',
+    data: result,
+  });
+});
+
+const updateData = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await BookService.updateData(id, req.body);
+
+  sendResponse<Book | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Books updated successfully',
+    data: result,
+  });
+});
+
+export const BookController = {
+  insertIntoDb,
+  getAllData,
+  getByBooks,
+  updateData,
+};

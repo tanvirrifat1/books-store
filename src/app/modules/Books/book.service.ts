@@ -109,4 +109,22 @@ const getAllData = async (
   };
 };
 
-export const BookService = { insertIntoDb, getAllData };
+const getByBooks = async (id: string): Promise<Book | null> => {
+  const result = await prisma.book.findUnique({
+    where: { id },
+  });
+  return result;
+};
+
+const updateData = async (
+  id: string,
+  payload: Partial<Book>
+): Promise<Book | null> => {
+  const result = await prisma.book.update({
+    where: { id },
+    data: payload,
+  });
+  return result;
+};
+
+export const BookService = { insertIntoDb, getAllData, getByBooks, updateData };
