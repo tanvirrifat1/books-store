@@ -1,6 +1,7 @@
 import { Book } from '@prisma/client';
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
+import { paginationFields } from '../../../constants/pagination';
 import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
@@ -20,11 +21,11 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
 
 const getAllData = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, BookFilterAbleFields);
-  const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
+  const options = pick(req.query, ['size', 'page', 'sortBy', 'sortOrder']);
 
   const result = await BookService.getAllData(filters, options);
 
-  sendResponse<Book[]>(res, {
+  sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Books fetched successfully',
@@ -34,16 +35,16 @@ const getAllData = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getByBooksCategoryId = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.query, BookFilterAbleFields);
-  const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
+  const { categoryId } = req.params;
 
-  const result = await BookService.getByBooksCategoryId(req.params.id, options);
-  sendResponse<Book[]>(res, {
+  const options = pick(req.query, paginationFields);
+
+  const result = await BookService.getByBooksCategoryId(categoryId, options);
+  sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Books fetched successfully',
+    message: 'Books with associated category data fetched successfully',
     meta: result.meta,
-
     data: result.data,
   });
 });
@@ -60,6 +61,8 @@ const getByBooks = catchAsync(async (req: Request, res: Response) => {
 });
 
 const updateData = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.body);
+
   const { id } = req.params;
   const result = await BookService.updateData(id, req.body);
 

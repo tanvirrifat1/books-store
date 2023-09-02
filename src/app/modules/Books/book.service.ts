@@ -24,8 +24,7 @@ const getAllData = async (
   filters: IBooksFilterRequest,
   options: IPaginationOptions
 ): Promise<IGenericResponse<Book[]>> => {
-  const { page, limit, skip, size } =
-    paginationHelpers.calculatePagination(options);
+  const { page, skip, size } = paginationHelpers.calculatePagination(options);
   const { search, maxPrice, mixPrice, ...filterData } = filters;
 
   const andConditions = [];
@@ -103,7 +102,7 @@ const getAllData = async (
     meta: {
       total,
       page,
-      limit,
+      size,
     },
     data: result,
   };
@@ -112,25 +111,23 @@ const getAllData = async (
 const getByBooksCategoryId = async (
   categoryId: string,
   options: IPaginationOptions
-) => {
-  const { page, skip, size } = paginationHelpers.calculatePagination(options);
-
-  if (size === undefined) {
-    throw new Error('Size is undefined in pagination options.');
-  }
+): Promise<IGenericResponse<Book[]>> => {
+  const { size, page, skip } = paginationHelpers.calculatePagination(options);
 
   const result = await prisma.book.findMany({
     where: {
-      category: { id: categoryId },
+      category: {
+        id: categoryId,
+      },
     },
     skip,
     take: size,
     orderBy:
       options.sortBy && options.sortOrder
-        ? {
-            [options.sortBy]: options.sortOrder,
-          }
-        : { createdAt: 'desc' },
+        ? { [options.sortBy]: options.sortOrder }
+        : {
+            createdAt: 'desc',
+          },
     include: {
       category: true,
     },
@@ -139,9 +136,9 @@ const getByBooksCategoryId = async (
     where: { category: { id: categoryId } },
   });
 
-  const subTotal = await prisma.book.count();
+  const subtotal = await prisma.book.count();
 
-  const totalPage = Math.ceil(subTotal / size);
+  const totalPage = Math.ceil(subtotal / size);
 
   return {
     meta: {
@@ -153,7 +150,6 @@ const getByBooksCategoryId = async (
     data: result,
   };
 };
-
 const getByBooks = async (id: string): Promise<Book | null> => {
   const result = await prisma.book.findUnique({
     where: { id },
