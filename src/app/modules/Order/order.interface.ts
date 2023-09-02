@@ -1,0 +1,15 @@
+export type IOrderBookData = {
+  bookId: string;
+  quantity: number;
+};
+
+export type IOrderData = {
+  userId: string;
+  orderedBooks: string;
+};
+
+export type IOrderFilterRequest = {
+  search?: string;
+  id?: string;
+  status?: string;
+};
