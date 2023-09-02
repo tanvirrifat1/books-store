@@ -3,6 +3,7 @@ type IOptions = {
   limit?: number;
   sortBy?: string;
   sortOrder?: string;
+  size?: number;
 };
 
 type IOptionsResult = {
@@ -11,6 +12,7 @@ type IOptionsResult = {
   skip: number;
   sortBy: string;
   sortOrder: string;
+  size?: number;
 };
 
 const calculatePagination = (options: IOptions): IOptionsResult => {
@@ -20,13 +22,14 @@ const calculatePagination = (options: IOptions): IOptionsResult => {
 
   const sortBy = options.sortBy || 'createdAt';
   const sortOrder = options.sortOrder || 'desc';
-
+  const size = options.size;
   return {
     page,
     limit,
     skip,
     sortBy,
     sortOrder,
+    size,
   };
 };
 
