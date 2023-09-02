@@ -21,7 +21,7 @@ router.patch(
   UserController.update
 );
 router.post(
-  '/signup',
+  '/create',
   validateRequest(UserValidation.create),
   UserController.insertIntoDb
 );

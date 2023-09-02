@@ -49,6 +49,21 @@
             "date": 1693642214893,
             "name": "C:\\projects\\book-store-assignment\\logs\\winston\\errors\\phu-2023-02-09-14-error.log",
             "hash": "3cbd88e66c564f762769e733ea26ec1f71ba33563749d65514ee2730a180e9c1"
+        },
+        {
+            "date": 1693645217646,
+            "name": "C:\\projects\\book-store-assignment\\logs\\winston\\errors\\phu-2023-02-09-15-error.log",
+            "hash": "bada92444cb48cffd31013815972d6be023e895b5368f78e496fb48c4004a53c"
+        },
+        {
+            "date": 1693648958989,
+            "name": "C:\\projects\\book-store-assignment\\logs\\winston\\errors\\phu-2023-02-09-16-error.log",
+            "hash": "0dd3f79cd00539ff79f25a33f3b200f6e2a3a1159ef1062be5c0c270066c3e2e"
+        },
+        {
+            "date": 1693661476662,
+            "name": "C:\\projects\\book-store-assignment\\logs\\winston\\errors\\phu-2023-02-09-19-error.log",
+            "hash": "e53b7e302162abdfb5ebf3ab4381623b191607f9ea6add72df3912631bf20545"
         }
     ],
     "hashType": "sha256"

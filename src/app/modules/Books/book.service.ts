@@ -109,6 +109,51 @@ const getAllData = async (
   };
 };
 
+const getByBooksCategoryId = async (
+  categoryId: string,
+  options: IPaginationOptions
+) => {
+  const { page, skip, size } = paginationHelpers.calculatePagination(options);
+
+  if (size === undefined) {
+    throw new Error('Size is undefined in pagination options.');
+  }
+
+  const result = await prisma.book.findMany({
+    where: {
+      category: { id: categoryId },
+    },
+    skip,
+    take: size,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? {
+            [options.sortBy]: options.sortOrder,
+          }
+        : { createdAt: 'desc' },
+    include: {
+      category: true,
+    },
+  });
+  const total = await prisma.book.count({
+    where: { category: { id: categoryId } },
+  });
+
+  const subTotal = await prisma.book.count();
+
+  const totalPage = Math.ceil(subTotal / size);
+
+  return {
+    meta: {
+      total,
+      page,
+      size,
+      totalPage,
+    },
+    data: result,
+  };
+};
+
 const getByBooks = async (id: string): Promise<Book | null> => {
   const result = await prisma.book.findUnique({
     where: { id },
@@ -146,4 +191,5 @@ export const BookService = {
   getByBooks,
   updateData,
   deleteData,
+  getByBooksCategoryId,
 };
