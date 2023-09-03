@@ -170,7 +170,9 @@ const getOrderById = async (
     });
     return result;
   } else if (id && user.role === 'customer') {
-    const result = await prisma.order.findUnique({ where: { id } });
+    const result = await prisma.order.findUnique({
+      where: { id, userId: user.userId },
+    });
     return result;
   }
   return null;

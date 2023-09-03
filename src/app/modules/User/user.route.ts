@@ -20,10 +20,5 @@ router.patch(
   validateRequest(UserValidation.update),
   UserController.update
 );
-router.post(
-  '/create',
-  validateRequest(UserValidation.create),
-  UserController.insertIntoDb
-);
 
 export const UserRoutes = router;

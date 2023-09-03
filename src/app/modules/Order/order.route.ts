@@ -10,13 +10,15 @@ router.get(
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.CUSTOMER),
   OrderController.getAllOrders
 );
+
 router.get(
   '/:orderId',
-  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.CUSTOMER),
+  auth(ENUM_USER_ROLE.CUSTOMER, ENUM_USER_ROLE.ADMIN),
   OrderController.getSingleOrder
 );
+
 router.post(
-  '/create',
+  '/create-order',
   auth(ENUM_USER_ROLE.CUSTOMER),
   OrderController.insertIntoDb
 );

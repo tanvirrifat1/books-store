@@ -5,7 +5,7 @@ export type IOrderBookData = {
 
 export type IOrderData = {
   userId: string;
-  orderedBooks: string;
+  orderedBooks: IOrderBookData[];
 };
 
 export type IOrderFilterRequest = {
