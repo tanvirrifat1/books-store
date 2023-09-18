@@ -3,7 +3,7 @@ live-link:https://book-store-assignment-tanvirrifat1.vercel.app/
 
 auth
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/signup (POST)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/login(POST)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/create (POST)
 
 
 User
