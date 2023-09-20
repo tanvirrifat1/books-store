@@ -1,9 +1,12 @@
 live-link:https://book-store-assignment-tanvirrifat1.vercel.app/
 
 
+https://book-store-assignment-tanvirrifat1.vercel.app
+
+
 auth
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/signup (POST)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/create (POST)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/signup(POST)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/signin(POST)
 
 
 User
@@ -17,7 +20,7 @@ https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/profile (GET)
 
 
 Category
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/create-category (POST)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/create-category(POST)
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories (GET)
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/:id(Single GET) 
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/:id(PATCH)

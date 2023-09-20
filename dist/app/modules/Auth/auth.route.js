@@ -9,6 +9,6 @@ const validateRequest_1 = __importDefault(require("../../middlewares/validateReq
 const auth_controller_1 = require("./auth.controller");
 const auth_validation_1 = require("./auth.validation");
 const router = express_1.default.Router();
-router.post('/create', (0, validateRequest_1.default)(auth_validation_1.AuthValidation.create), auth_controller_1.AuthController.insertIntoDb);
-router.post('/signup', (0, validateRequest_1.default)(auth_validation_1.AuthValidation.signIn), auth_controller_1.AuthController.signIn);
+router.post('/signup', (0, validateRequest_1.default)(auth_validation_1.AuthValidation.create), auth_controller_1.AuthController.insertIntoDb);
+router.post('/signin', (0, validateRequest_1.default)(auth_validation_1.AuthValidation.signIn), auth_controller_1.AuthController.signIn);
 exports.AuthRoutes = router;
