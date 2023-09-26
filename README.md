@@ -1,7 +1,4 @@
-live-link:https://book-store-assignment-tanvirrifat1.vercel.app/
-
-
-https://book-store-assignment-tanvirrifat1.vercel.app
+live-link:https://book-store-assignment-tanvirrifat1.vercel.app
 
 
 auth
@@ -11,9 +8,10 @@ https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/auth/signin(POST)
 
 User
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users (GET)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users/:id (Single GET) 
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users/:id (PATCH)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users/:id (DELETE) 
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users/0c998326-c788-4835-9e0a-cff4b5a35ac8 (Single GET) 
+
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users/:0c998326-c788-4835-9e0a-cff4b5a35ac8 (PATCH)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/users/:0c998326-c788-4835-9e0a-cff4b5a35ac8 (DELETE) 
 
 Profile
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/profile (GET)
@@ -22,9 +20,9 @@ https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/profile (GET)
 Category
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/create-category(POST)
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories (GET)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/:id(Single GET) 
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/:id(PATCH)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/:id(DELETE) 
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/7121a2f1-1442-470f-ab05-e34059f59e43(Single GET) 
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/7121a2f1-1442-470f-ab05-e34059f59e43(PATCH)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/categories/7121a2f1-1442-470f-ab05-e34059f59e43(DELETE) 
 
 
 
@@ -32,9 +30,9 @@ Books
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/create-book (POST)
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books (GET)
 https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/:categoryId/category (GET)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/:id(GET)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/:id(PATCH)
-https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/:id(DELETE)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/d7398831-ba5c-445f-b3b7-9353d0209abb(GET)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/d7398831-ba5c-445f-b3b7-9353d0209abb (PATCH)
+https://book-store-assignment-tanvirrifat1.vercel.app/api/v1/books/d7398831-ba5c-445f-b3b7-9353d0209abb(DELETE)
 
 
 
